@@ -1,79 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MongoDB 2024 Tutorial by Mohammed Q. Sattar</title>
-<style>
-  body { font-family: Arial, sans-serif; margin: 40px; background: #f4f4f9; color: #333; }
-  h1, h2 { color: #445569; }
-  pre { background: #e4e4e4; padding: 10px; border-radius: 5px;text-wrap: wrap; }
-  .command { color: #009688; }
-  .note { color: #d32f2f; }
-  #navigation { background: #fff; padding: 10px; border-bottom: 2px solid #ccc; margin-bottom: 20px;position: sticky;top: 10px; display: flex; overflow-x: scroll;}
-  #navigation a { margin-right: 15px; text-decoration: none; color: #445569; font-weight: bold; border-right: 2px solid #ccc;padding: 0 10px;}
-  #navigation a:hover { text-decoration: underline; }
-  section { margin-bottom: 20px;}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MongoDB 2024 Tutorial by Mohammed Q. Sattar</title>
+  <meta name="description"
+    content="Learn MongoDB basics with this comprehensive tutorial by Mohammed Q. Sattar. Includes essential commands and concepts for beginners.">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background: #f4f4f9;
+      color: #333;
+    }
+
+    h1,
+    h2 {
+      color: #445569;
+    }
+
+    pre {
+      background: #e4e4e4;
+      padding: 10px;
+      border-radius: 5px;
+      text-wrap: wrap;
+    }
+
+    .command {
+      color: #009688;
+    }
+
+    .note {
+      color: #d32f2f;
+    }
+
+    #navigation {
+      background: #fff;
+      padding: 10px;
+      border-bottom: 2px solid #ccc;
+      margin-bottom: 20px;
+      position: sticky;
+      top: 10px;
+      display: flex;
+      overflow-x: scroll;
+    }
+
+    #navigation a {
+      margin-right: 15px;
+      text-decoration: none;
+      color: #445569;
+      font-weight: bold;
+      border-right: 2px solid #ccc;
+      padding: 0 10px;
+    }
+
+    #navigation a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      margin-bottom: 20px;
+    }
+  </style>
 </head>
+
 <body>
-<h1>MongoDB 2024</h1>
-<p>Written by <strong>Mohammed Q. Sattar</strong></p>
+  <h1>MongoDB 2024</h1>
+  <p>Written by <strong>Mohammed Q. Sattar</strong></p>
 
-<div id="navigation">
-  <a href="#showDatabases">Show Databases</a>
-  <a href="#useDatabase">Use Database</a>
-  <a href="#dropDatabase">Drop Database</a>
-  <a href="#insertData">Insert Data</a>
-  <a href="#clearShell">Clear Shell</a>
-  <a href="#returnDocuments">Return Documents</a>
-  <a href="#dataTypes">Data Types</a>
-  <a href="#sortingLimiting">Sorting & Limiting</a>
-</div>
+  <div id="navigation" role="navigation" aria-label="Table of Contents">
+    <a href="#showDatabases">Show Databases</a>
+    <a href="#useDatabase">Use Database</a>
+    <a href="#dropDatabase">Drop Database</a>
+    <a href="#insertData">Insert Data</a>
+    <a href="#clearShell">Clear Shell</a>
+    <a href="#returnDocuments">Return Documents</a>
+    <a href="#dataTypes">Data Types</a>
+    <a href="#sortingLimiting">Sorting & Limiting</a>
+  </div>
 
-<section id="showDatabases">
-  <h2>Show Databases</h2>
-  <pre class="command">show dbs</pre>
-</section>
+  <section id="showDatabases">
+    <h2>Show Databases</h2>
+    <pre class="command">show dbs</pre>
+  </section>
 
-<section id="useDatabase">
-  <h2>Use Database</h2>
-  <pre class="command">use databaseName</pre>
-  <p class="note">Example: use admin</p>
-  <p class="note">Note: If you write "use database" which does not exist, it will create this database.</p>
-  <pre class="command">example use school</pre>
-  <p class="note">Note: "school" was not listed in the database but now it has been created.</p>
-  <p>To fill a database when it is empty:</p>
-  <pre class="command">db.createCollection("Students")</pre>
-</section>
+  <section id="useDatabase">
+    <h2>Use Database</h2>
+    <pre class="command">use databaseName</pre>
+    <p class="note">Example: use admin</p>
+    <p class="note">Note: If you write "use database" which does not exist, it will create this database.</p>
+    <pre class="command">example use school</pre>
+    <p class="note">Note: "school" was not listed in the database but now it has been created.</p>
+    <p>To fill a database when it is empty:</p>
+    <pre class="command">db.createCollection("Students")</pre>
+  </section>
 
-<section id="dropDatabase">
-  <h2>Drop Database</h2>
-  <pre class="command">db.dropDatabase()</pre>
-  <p class="note">Note: Database should be used first to be dropped.</p>
-</section>
+  <section id="dropDatabase">
+    <h2>Drop Database</h2>
+    <pre class="command">db.dropDatabase()</pre>
+    <p class="note">Note: Database should be used first to be dropped.</p>
+  </section>
 
-<section id="insertData">
-  <h2>Insert Data to Database</h2>
-  <p class="note">Note: If the collection is not created yet, once you write an insert command to insert data, the collection will be created.</p>
-  <pre class="command">db.students.insertOne({name: "Mohammed", age: 30, gpa: 3.2})</pre>
-</section>
+  <section id="insertData">
+    <h2>Insert Data to Database</h2>
+    <p class="note">Note: If the collection is not created yet, once you write an insert command to insert data, the
+      collection will be created.</p>
+    <pre class="command">db.students.insertOne({name: "Mohammed", age: 30, gpa: 3.2})</pre>
+  </section>
 
-<section id="clearShell">
-  <h2>Clear the Shell Terminal</h2>
-  <pre class="command">cls</pre>
-</section>
+  <section id="clearShell">
+    <h2>Clear the Shell Terminal</h2>
+    <pre class="command">cls</pre>
+  </section>
 
-<section id="returnDocuments">
-  <h2>Return Documents Within a Collection</h2>
-  <pre class="command">db.students.find()</pre>
-  <p>Insert many documents into a collection:</p>
-  <pre class="command">db.students.insertMany([{name: "john", age: 33, gpa: 1.5}, {name: "lilan", age: 27, gpa: 3.5}, {name: "aldeno", age: 27, gpa: 4.5}])</pre>
-</section>
+  <section id="returnDocuments">
+    <h2>Return Documents Within a Collection</h2>
+    <pre class="command">db.students.find()</pre>
+    <p>Insert many documents into a collection:</p>
+    <pre
+      class="command">db.students.insertMany([{name: "john", age: 33, gpa: 1.5}, {name: "lilan", age: 27, gpa: 3.5}, {name: "aldeno", age: 27, gpa: 4.5}])</pre>
+  </section>
 
-<section id="dataTypes">
-  <h2>Data Types Accepted</h2>
-  <pre class="command">
+  <section id="dataTypes">
+    <h2>Data Types Accepted</h2>
+    <pre class="command">
 String name: "Larry"
 Integer age: 32
 Double gpa: 2.7
@@ -83,26 +134,29 @@ NoValue graduationDate: null
 Array courses: ["Biology", "Chemistry", "Calculus"]
 address: {street: "123 Fake St.", city: "Bikini Bottom", zip: 12345}
   </pre>
-</section>
+  </section>
 
-<section id="sortingLimiting">
-  <h2>Sorting and Limiting</h2>
-  <pre class="command">db.students.find().sort({name: 1}) // 1 means alphabetical order</pre>
-  <pre class="command">db.students.find().sort({name: -1}) // -1 means reverse alphabetical order</pre>
-  <pre class="command">db.students.find().sort({gpa: 1})</pre>
-  <pre class="command">db.students.find().sort({gpa: -1})</pre>
-  <pre class="command">db.students.find().limit(2) // 2 means number of documents returned</pre>
-  <pre class="command">db.students.find().sort({gpa: -1}).limit(1) // Highest GPA, limit 1</pre>
-</section>
+  <section id="sortingLimiting">
+    <h2>Sorting and Limiting</h2>
+    <pre class="command">db.students.find().sort({name: 1}) // 1 means alphabetical order</pre>
+    <pre class="command">db.students.find().sort({name: -1}) // -1 means reverse alphabetical order</pre>
+    <pre class="command">db.students.find().sort({gpa: 1})</pre>
+    <pre class="command">db.students.find().sort({gpa: -1})</pre>
+    <pre class="command">db.students.find().limit(2) // 2 means number of documents returned</pre>
+    <pre class="command">db.students.find().sort({gpa: -1}).limit(1) // Highest GPA, limit 1</pre>
+  </section>
 
-<script>
-  document.querySelectorAll('#navigation a').forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      const targetSection = document.querySelector(this.getAttribute('href'));
-      window.scrollTo({ top: targetSection.offsetTop, behavior: 'smooth' });
+  <script>
+    document.querySelectorAll('#navigation a').forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetSection = document.querySelector(this
+          .getAttribute('href'));
+        window.scrollTo({ top: targetSection.offsetTop, behavior: 'smooth' });
+      });
     });
-  });
-</script>
+  </script>
+
 </body>
+
 </html>
